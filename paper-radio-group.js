@@ -70,6 +70,16 @@ Polymer({
     }
   },
 
+  created: function() {
+    for (let name in this.properties) {
+      if (this.properties.hasOwnProperty(name)) {
+        let attribute = this.attributes[name];
+        if (!attribute) continue;
+        this[name] = attribute.value;
+      }
+    }
+  },
+
   /**
    * Selects the given value.
    */
